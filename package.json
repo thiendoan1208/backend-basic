@@ -1,0 +1,27 @@
+{
+  "name": "backend-basic",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/thiendoan1208/backend-basic#readme",
+  "bugs": {
+    "url": "https://github.com/thiendoan1208/backend-basic/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiendoan1208/backend-basic.git"
+  },
+  "license": "ISC",
+  "author": "DoanThien",
+  "type": "commonjs",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon /server.mjs"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
