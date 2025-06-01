@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit user</title>
+    <style>
+        .border {
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Edit user</h2>
+    <div class="border">
+        <form action="/edit-user" method="post">
+            <div style="display: none;">
+                <label for="ID">ID</label><br>
+                <input type="text" id="ID" name="ID" value="<%= user.ID %>"><br><br>
+            </div>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="<%= user.LastName %>"><br><br>
+
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="<%= user.FirstName %>"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="<%= user.Email %>"><br>
+
+            <label for="address">Address</label><br>
+            <input type="text" id="address" name="address" value="<%= user.Address %>"><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+
+</body>
+
+</html>

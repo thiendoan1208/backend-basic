@@ -9,10 +9,8 @@
 
 <body>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a class="active" href="/">Home</a>
+        <a href="/create-user-page">Create</a>
     </div>
     <div>
         <table>
@@ -44,8 +42,10 @@
                     <td>
                         <div>
                             <button><a href="/details/<%= user.ID %>">Detail</a></button>
-                            <button>Edit</button>
-                            <button>Delete</button>
+                            <button><a href="/edit-user-page/<%= user.ID %>">Edit</a></button>
+                            <form action="/delete-user/<%= user.ID %>" method="post">
+                                <input type="submit" value="Delete">
+                            </form>
                         </div>
                     </td>
                 </tr>
