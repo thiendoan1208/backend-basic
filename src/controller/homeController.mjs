@@ -3,7 +3,7 @@ import connection from "../configs/db.mjs";
 const getAllUser = async (req, res) => {
   try {
     const [results] = await connection.execute("SELECT * FROM Users ");
-    res.render("home.ejs", { data: results });
+    return res.render("home.ejs", { data: results });
   } catch (err) {
     console.log(err);
   }
@@ -16,14 +16,14 @@ const getUserDetail = async (req, res) => {
       "SELECT * FROM Users WHERE ID = ? ",
       [userId]
     );
-    res.send(JSON.stringify(results));
+    return res.send(JSON.stringify(results));
   } catch (error) {
     console.log(error);
   }
 };
 
 const createUserPage = (req, res) => {
-  res.render("create-user-page.ejs");
+  return res.render("create-user-page.ejs");
 };
 
 const createNewUSer = async (req, res) => {
@@ -34,7 +34,7 @@ const createNewUSer = async (req, res) => {
        values (?, ?, ?,?)`,
       [lname, fname, email, address]
     );
-    res.redirect("/");
+    return res.redirect("/");
   } catch (error) {
     console.log(error);
   }
@@ -48,7 +48,7 @@ const getEditUserPage = async (req, res) => {
       "SELECT * FROM Users WHERE ID = ? ",
       [userId]
     );
-    res.render("edit-user-page.ejs", { user: results[0] });
+    return res.render("edit-user-page.ejs", { user: results[0] });
   } catch (error) {
     console.log(error);
   }
@@ -63,7 +63,7 @@ const editUser = async (req, res) => {
        WHERE ID = ?;`,
       [lname, fname, email, address, ID]
     );
-    res.redirect("/");
+    return res.redirect("/");
   } catch (error) {
     console.log(error);
   }
@@ -73,7 +73,7 @@ const deleteUser = async (req, res) => {
   const userId = req.params.userID;
   try {
     await connection.execute(`DELETE FROM Users WHERE ID = ?;`, [userId]);
-    res.redirect("/");
+    return res.redirect("/");
   } catch (error) {
     console.log(error);
   }

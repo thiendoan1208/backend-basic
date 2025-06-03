@@ -1,10 +1,20 @@
 import express from "express";
+import {
+  getAllUser,
+  createNewUSer,
+  updateUser,
+  deleteUser,
+} from "../controller/apiController.mjs";
 
-const apiRouter = express.Router();
+const router = express.Router();
 
-// Khai báo routes
-apiRouter.get("/", (req, res) => {
-  res.json({ name: "ABc" });
-});
+router.get("/users", getAllUser);
 
-export default apiRouter;
+// create new user
+router.post("/create-user", createNewUSer);
+// update user
+router.put("/update-user", updateUser);
+// delete user
+router.delete("/delete-user/:userID", deleteUser);
+
+export default router;
