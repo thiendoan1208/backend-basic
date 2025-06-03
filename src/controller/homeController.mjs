@@ -1,4 +1,5 @@
 import connection from "../configs/db.mjs";
+import multer from "multer";
 
 const getAllUser = async (req, res) => {
   try {
@@ -79,6 +80,29 @@ const deleteUser = async (req, res) => {
   }
 };
 
+// Upload file
+const uploadFilePage = (req, res) => {
+  return res.render("upload-file.ejs");
+};
+
+const handleUploadFile = async (req, res) => {
+  try {
+    if (req.fileValidationError) {
+      return res.send(req.fileValidationError);
+    } else if (!req.file) {
+      return res.send("Please select an image to upload");
+    }
+
+    // Show uploaded image
+    res.send(
+      `You have uploaded this image: <hr/><img src="/images/${req.file.filename}" width="500"><hr /><a href="/upload">Upload another image</a>`
+    );
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Something went wrong during upload");
+  }
+};
+
 export {
   getAllUser,
   getUserDetail,
@@ -87,4 +111,6 @@ export {
   getEditUserPage,
   editUser,
   deleteUser,
+  uploadFilePage,
+  handleUploadFile,
 };

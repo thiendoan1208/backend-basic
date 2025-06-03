@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="" href="/">Home</a>
+        <a href="/create-user-page">Create</a>
+        <a class="active" href="/upload">Upload</a>
+    </div>
+    <div class="upload-file-container">
+        <div style="margin: 10px;">
+            <p>Upload single</p>
+            <form method="post" action="/upload-avt" enctype="multipart/form-data">
+                <label for="avt-file">Avatar: </label>
+                <input type="file" name="avt-file" id="avt-file">
+                <div>
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+
+        <div style="margin: 10px;">
+            <p>Upload multiple</p>
+            <form method="post" action="/upload-multi-avt" enctype="multipart/form-data">
+                <label for="avt-files">Avatar: </label>
+                <input type="file" name="avt-files" id="avt-files" multiple>
+
+                <div>
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
